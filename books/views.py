@@ -7,7 +7,8 @@ from .models import Book
 
 
 def index(request):
-    books = Book.objects.all()
+    query=request.GET.get('q','')
+    books = Book.objects.filter(title__in=[query])
     return render(request, 'books/index.html',{
         "books": books
     })
