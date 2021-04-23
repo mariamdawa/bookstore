@@ -1,6 +1,9 @@
 {% extends 'layout/main.html' %}
 {% block title %} Main {% endblock %}
 
+{% if request.user %}
+<h2>Welcome, {{request.user}}</h2>
+{% endif %}
 {% block body %}
     <a class="btn btn-block btn-outline-success" href="{% url 'create' %}">Create a new book</a>
     <br>
